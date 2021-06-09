@@ -1,4 +1,2 @@
 #!/bin/bash
-mkdir /tmp/holberton
-touch tmp/betty
-mv /tmp/betty /tmp/holberton
+mkdir /tmp/holberton touch tmp/betty mv /tmp/betty /tmp/holberton
