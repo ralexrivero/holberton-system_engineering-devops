@@ -1,2 +1,2 @@
--rw-r--r-- 1 root root 15 Jun  9 07:20 README.md#!/bin/bash
+#!/bin/bash
 cd $HOME
