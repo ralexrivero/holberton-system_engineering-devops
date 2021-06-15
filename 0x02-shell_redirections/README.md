@@ -1,0 +1,1 @@
+#Scripts redirections I/O
