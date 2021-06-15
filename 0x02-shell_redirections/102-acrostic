@@ -1,2 +1,3 @@
 #!/bin/bash
-cut -c 1
+cut -c1 Acrostic | tr -d '\n'
+ 
