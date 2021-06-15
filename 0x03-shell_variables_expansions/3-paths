@@ -1,2 +1,2 @@
 #!/bin/bash
-expr length $PATH
+echo "${#PATH[@]}"
