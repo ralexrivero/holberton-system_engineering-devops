@@ -1,2 +1,2 @@
 #!/bin/bash
-env ;printenv ; typeset -F
+echo $(env) $(printenv) $(typeset -F)
