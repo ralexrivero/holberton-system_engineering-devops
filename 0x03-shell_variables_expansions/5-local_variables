@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(env) $(printenv) $(typeset -F)
+( set -o posix ; set ) | less
