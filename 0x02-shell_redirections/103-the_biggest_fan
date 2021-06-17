@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -f1 wget http://indeedeng.github.io/imhotep/files/nasa_19950801.tsv |sort | uniq -c | sort -r | head -11
+wget http://indeedeng.github.io/imhotep/files/nasa_19950801.tsv | tail -n +2 | cut -f1 |sort | uniq -c | sort -r | head -11
