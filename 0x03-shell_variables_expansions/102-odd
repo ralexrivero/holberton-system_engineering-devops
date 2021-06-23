@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -n . | grep "^[0-9]*[13579]:" | cut -d ":" -f 2
