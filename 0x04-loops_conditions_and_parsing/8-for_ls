@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#  Bash script that displays: (1) The dir_content of the current directory (2) In a command format (3) Where only the part of the name after the first dash is displayed
+dir_content=0
+command=$(ls)
+for dir_content in $command
+do
+    echo "$dir_content" | cut -d "-" -f2
+done
