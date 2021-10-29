@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# shell script displays Best School 10 times, but for the 9th iteration, displays Best School and then Hi on a new line.
+SCHOOL="Best School"
+COUNT=1
+while [ $COUNT -le 10 ]; do
+    echo "$SCHOOL"
+    if [ $COUNT == 9 ]; then
+	echo "Hi"
+    fi
+    COUNT=$((COUNT + 1))
+done
