@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
 # This script is displaying "Best school" 10 times
+for _ in {1..10}
+do
+echo "Best school"
+done
