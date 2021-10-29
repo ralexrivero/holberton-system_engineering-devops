@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# shell sript print 10 times Best School using while loop
+MESSAGE="Best School"
+I=1
+while [ $I -le 10 ];
+do
+        echo "$MESSAGE"
+        I=$((I + 1))
+done
