@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that displays lines containing the `bash` word, obtaining own PID Bash process
+# shellcheck disable=SC2009
+ps faxu | grep bash
