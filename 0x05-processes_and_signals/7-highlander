@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Script bash displaying To infinity and beyond indefinitely
+# Bash script that displays: (1) To infinity and beyond indefinitely (2) With a sleep 2 in between each iteration (3) I am invincible!!! when receiving a SIGTERM signal
+
 i=0
 while [ $i -le 3 ]
 do
