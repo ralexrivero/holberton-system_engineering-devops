@@ -1,45 +1,20 @@
-# 0x05. Processes and signals
+# 0x06. Regular expression
 
 ```
-         _nnnn_
-        dGGGGMMb
-       @p~qp~~qMb
-       M|@||@) M|
-       @,----.JM|
-      JS^\__/  qKL
-     dZP        qKRb
-    dZP          qKKb
-   fZP            SMMb
-   HZM            MMMM
-   FqM            MMMM
- __| ".        |\dS"qML
- |    `.       | `' \Zq
-_)      \.___.,|     .'
-\____   )MMMMMP|   .'
-     `-'       `--' hjm
+8b,dPPYba,  ,adPPYba,  ,adPPYb,d8  ,adPPYba, 8b,     ,d8
+88P'   "Y8 a8P_____88 a8"    `Y88 a8P_____88  `Y8, ,8P'
+88         8PP""""""" 8b       88 8PP"""""""    )888(
+88         "8b,   ,aa "8a,   ,d88 "8b,   ,aa  ,d8" "8b,
+88          `"Ybbd8"'  `"YbbdP"Y8  `"Ybbd8"' 8P'     `Y8
+                       aa,    ,88
+                        "Y8bbdP"
 ```
 
 ## Learning Objectives
 
 ### General
 
-- What is a PID
-- What is a process
-- How to find a process’ PID
-- How to kill a process
-- What is a signal
-- What are the 2 signals that cannot be ignored
-
-## Resources
-
-### man or help
-
-- ```ps```
-- ```pgrep```
-- ```pkill```
-- ```kill```
-- ```exit```
-- ```trap```
+- Lear the concept of regular expressions
 
 ## Environment
 
@@ -52,8 +27,14 @@ _)      \.___.,|     .'
   <a href="https://www.gnu.org/software/bash/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=GNU%20Bash&color=4EAA25&logo=GNU%20Bash&logoColor=4EAA25&labelColor=2F333A" alt="terminal"></a>
 </div>
 
-- Language: BASH scripting (executable)
-  - #!/usr/bin/env bash
+- Language: Ruby scripting (executable) build for Oniguruma library
+  - #!/usr/bin/env ruby
+- expected code structure:
+
+```
+#!/usr/bin/env ruby
+puts ARGV[0].scan(/127.0.0.[0-9]/).join
+```
 
 - OS: Ubuntu 20.04 LTS
 
