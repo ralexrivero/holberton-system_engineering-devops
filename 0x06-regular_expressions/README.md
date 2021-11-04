@@ -40,9 +40,7 @@ puts ARGV[0].scan(/127.0.0.[0-9]/).join
 
 - Editor: VIM 8.1.2269
 
-- [Shellcheck (version 0.7.0)](https://github.com/koalaman/shellcheck#installing)
-
-- [Shellcheck issues](https://github.com/koalaman/shellcheck/wiki/SC2034)
+- Tested in [rubular.com](https://rubular.com/)
 
 ## Autor
 
