@@ -44,7 +44,6 @@
 - Memorize SSH, HTTP and HTTPS port numbers
 - What tool/protocol is often used to check if a device is connected to a network
 
-
 ## man or help
 
 ```netstat```
