@@ -12,10 +12,18 @@
 
 CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything is done via the command line and the questions are becoming increasingly complicated. It’s a good training to improve your command line skills!
 
-
 ## command for the challenge
-```echo```
-``` ```
+
+* ```echo```
+* ```pwd```
+* ```ls```
+* ```cat```
+* ```tail```
+* ```touch```
+* ```mkdir``` *see the -p flag to create parent directories*
+* ```cp```
+* ```mv```
+* ```ln``` *see the -s flag to create symbolic links*
 
 ## Environment
 
