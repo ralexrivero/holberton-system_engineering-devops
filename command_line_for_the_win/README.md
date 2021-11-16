@@ -68,10 +68,34 @@ CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything i
 * ```xargs``` *Run command with arguments INITIAL-ARGS and more args read from input*
 * ```cut``` print selected parts of each line of a file
   > *```cut -d " " -f 1``` to print the first column of each line with a single space delimiter*
-* ```wc``` *count the number of lines, words and characters in a file*
+* ```wc``` *print newline, word and byte count for each file*
   > *```wc -l``` to print the number of lines in a file*
 
 ***
+
+* ```sort``` *sort lines of a file*
+  * ```-c``` *print the number of selected lines*
+  > *```sort -r``` to reverse the order of the lines*
+* ```tr``` *translate characters in a file*
+  > *```tr "old" "new"``` to replace all occurrences of old with new*
+* ```echo``` *print a line of text*
+  * *```{1..10}``` to print a range of numbers*
+  > *```echo "Hello World"``` to print the text "Hello World"*
+* ```sed``` *stream editor*
+  > *```sed "s/old/new/g"``` to replace all occurrences of old with new*
+  > *```sed -i "text to delete//g" **/*txt * to delete the text and save the file*
+* ```awk``` *programming language for manipulation of data files, text retrieval and processing, prototyping and experimenting with algorithms*
+  > *```awk '{print $1}'``` to print the first column of each line*
+* ```printf``` *print formatted output to stdout*
+  > *```printf "%s\n" "Hello World"``` to print the text "Hello World"*
+  > *```find -type f -printf '%f\n'``` to print the file's filename without the leading path recursively*
+* ```rename``` *rename files*
+  > *```rename "s/old/new/g"``` to replace all occurrences of old with new*
+* ```mv``` *move files*
+  > *```mv "old" "new"``` to rename old to new*
+  > *```for file in $(find . -type f); do mv "$file" "${file%.*}"; done``` to rename all the files and remove extensions*
+
+
 
 ## Autor
 
