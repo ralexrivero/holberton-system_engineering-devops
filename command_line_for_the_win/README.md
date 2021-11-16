@@ -1,15 +1,11 @@
 # Command line for the win
 
 ```bash
-
-                                                                                             88    88 88
-                                                                                             88    88 ""
-                                                                                             88    88
- ,adPPYba,  ,adPPYba,  88,dPYba,,adPYba,  88,dPYba,,adPYba,  ,adPPYYba, 8b,dPPYba,   ,adPPYb,88    88 88 8b,dPPYba,   ,adPPYba,
-a8"     "" a8"     "8a 88P'   "88"    "8a 88P'   "88"    "8a ""     `Y8 88P'   `"8a a8"    `Y88    88 88 88P'   `"8a a8P_____88
-8b         8b       d8 88      88      88 88      88      88 ,adPPPPP88 88       88 8b       88    88 88 88       88 8PP"""""""
-"8a,   ,aa "8a,   ,a8" 88      88      88 88      88      88 88,    ,88 88       88 "8a,   ,d88    88 88 88       88 "8b,   ,aa
- `"Ybbd8"'  `"YbbdP"'  88      88      88 88      88      88 `"8bbdP"Y8 88       88  `"8bbdP"Y8    88 88 88       88  `"Ybbd8"'
+ ██████ ███    ███ ██████ 
+██      ████  ████ ██   ██ 
+██      ██ ████ ██ ██   ██ 
+██      ██  ██  ██ ██   ██ 
+ ██████ ██      ██ ██████  
 ```
 
 ## Background Context
