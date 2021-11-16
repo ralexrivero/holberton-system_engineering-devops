@@ -15,7 +15,7 @@ CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything i
 
 ## command for the challenge
 ```echo```
-```
+``` ```
 
 ## Environment
 
