@@ -1,29 +1,16 @@
 # Command line for the win
 
 ```bash
- ██████  ██████  ███    ███ ███    ███  █████  ███    ██ ██████      ██      ██ ███    ██ ███████ 
-██      ██    ██ ████  ████ ████  ████ ██   ██ ████   ██ ██   ██     ██      ██ ████   ██ ██      
-██      ██    ██ ██ ████ ██ ██ ████ ██ ███████ ██ ██  ██ ██   ██     ██      ██ ██ ██  ██ █████ 
-██      ██    ██ ██  ██  ██ ██  ██  ██ ██   ██ ██  ██ ██ ██   ██     ██      ██ ██  ██ ██ ██    
- ██████  ██████  ██      ██ ██      ██ ██   ██ ██   ████ ██████      ███████ ██ ██   ████ ███████ 
+ ██████  ██████  ███    ███ ███    ███  █████  ███    ██ ██████      ██      ██ ███    ██ ███████
+██      ██    ██ ████  ████ ████  ████ ██   ██ ████   ██ ██   ██     ██      ██ ████   ██ ██
+██      ██    ██ ██ ████ ██ ██ ████ ██ ███████ ██ ██  ██ ██   ██     ██      ██ ██ ██  ██ █████
+██      ██    ██ ██  ██  ██ ██  ██  ██ ██   ██ ██  ██ ██ ██   ██     ██      ██ ██  ██ ██ ██
+ ██████  ██████  ██      ██ ██      ██ ██   ██ ██   ████ ██████      ███████ ██ ██   ████ ███████
 ```
 
 ## Background Context
 
 CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything is done via the command line and the questions are becoming increasingly complicated. It’s a good training to improve your command line skills!
-
-## command for the challenge
-
-* ```echo```
-* ```pwd```
-* ```ls```
-* ```cat```
-* ```tail```
-* ```touch```
-* ```mkdir``` *see the -p flag to create parent directories*
-* ```cp```
-* ```mv```
-* ```ln``` *see the -s flag to create symbolic links*
 
 ## Environment
 
@@ -51,13 +38,48 @@ CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything i
 
 * [Shellcheck issues](https://github.com/koalaman/shellcheck/wiki/SC2034)
 
+## command for the challenge
+
+> Use ```man``` and ```help``` pages of each of the following commands
+
+* ```echo```
+* ```pwd```
+* ```ls```
+* ```cat```
+* ```tail```
+* ```touch```
+* ```mkdir```
+  * *```-p``` to create parent directories*
+* ```cp```
+* ```mv```
+
+***
+
+* ```ln``` *see the -s flag to create symbolic links*
+* ```find```
+  * *```-delete``` to delete files*
+  * *```-iname``` to search for files in the current directory*
+  * *```-type``` to search for files by type*
+  > *```find . -iname '*.txt'``` to search for files with the extension .txt recursively*
+* ```grep```
+  > *```grep "pattern" file``` to search for a pattern in a file*
+* *```-h``` nodisplay of the file name*
+  > *```grep -l "pattern" *``` seach files matching a pattern and print only the filename without path*
+* ```xargs``` *Run command with arguments INITIAL-ARGS and more args read from input*
+* ```cut``` print selected parts of each line of a file
+  > *```cut -d " " -f 1``` to print the first column of each line with a single space delimiter*
+* ```wc``` *count the number of lines, words and characters in a file*
+  > *```wc -l``` to print the number of lines in a file*
+
+***
+
 ## Autor
 
-```
+```bash
 Ronald Rivero
 ```
 
-### Connect me!
+### contact
 
 <br>
 <div>
