@@ -27,7 +27,6 @@
 * Terminal: Bash 5.0.17
 * Graphic editor
 
-
 ## Autor
 
 >```Ronald Rivero```
