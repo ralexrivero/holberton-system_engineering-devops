@@ -29,6 +29,8 @@
 * OS: Ubuntu 20.04 LTS
 * Terminal: Bash 5.0.17
 * Puppet
+* Style guidelines: [Puppet Style Guide](https://docs.puppet.com/puppet/latest/style_guide.html)
+* [Puppet lint](https://docs.puppet.com/puppet/latest/reference/puppet_lint.html)
 
 ## Install puppet
 
@@ -49,6 +51,25 @@ $
 $ gem install puppet-lint
 $
 ```
+
+## execute scripts
+
+```bash
+$:~# puppet-lint --version
+puppet-lint 2.5.2
+$:~# puppet-lint 0-create_a_file.pp
+$:~#
+$:~# puppet apply 0-create_a_file.pp
+Notice: Compiled catalog for 6712bef7a528.ec2.internal in environment production in 0.04 seconds
+Notice: /Stage[main]/Main/File[school]/ensure: defined content as '{md5}f1b70c2a42a98d82224986a612400db9'
+Notice: Finished catalog run in 0.03 seconds
+$:~#
+$:~# ls -l /tmp/school
+-rwxr--r-- 1 www-data www-data 13 Mar 19 23:12 /tmp/school
+$:~# cat /tmp/school
+I love Puppetroot@6712bef7a528:~#
+```
+
 
 ## Autor
 
