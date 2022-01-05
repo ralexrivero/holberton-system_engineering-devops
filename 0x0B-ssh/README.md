@@ -44,7 +44,21 @@
 
 ```bash
 $ sudo apt-get install openssh-client
-$```
+$
+```
+
+## Execute
+
+```bash
+$ ./0-use_a_private_key
+ubuntu@server01:~$ exit
+Connection to 8.8.8.8 closed.
+$
+```
+
+```bash
+
+```
 
 ## Autor
 
