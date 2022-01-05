@@ -40,6 +40,11 @@
 * Style guidelines: [Puppet Style Guide](https://docs.puppet.com/puppet/latest/style_guide.html)
 * [Puppet lint](https://docs.puppet.com/puppet/latest/reference/puppet_lint.html)
 
+### install the OpenSSH client
+
+```bash
+$ sudo apt-get install openssh-client
+$```
 
 ## Autor
 
