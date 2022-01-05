@@ -57,7 +57,25 @@ $
 ```
 
 ```bash
-
+$ ./1-create_ssh_key_pair
+Generating public/private rsa key pair.
+Your identification has been saved in school
+Your public key has been saved in school.pub
+The key fingerprint is:
+SHA256:7vxuWOhoZPFYW1h3DeIaF+MZqFtfYXx1IpX2fdOLqRk root@9d03faf1f602
+The key's randomart image is:
++---[RSA 4096]----+
+|           .*o+++|
+|          oo.BB.+|
+|         +..=+ +o|
+|      . + o+  ..=|
+|       =S*.. .o +|
+|      +.= .E.o . |
+|     o o.o  +    |
+|      ooo .o     |
+|     .  o+o      |
++----[SHA256]-----+
+$
 ```
 
 ## Autor
