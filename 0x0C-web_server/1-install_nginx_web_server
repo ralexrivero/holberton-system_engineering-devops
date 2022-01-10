@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#install ngix and put holberton inside
+#install nginx and create index.html file with Hello World text
 
-sudo apt-get update -y && \
-sudo apt-get install -y nginx
+sudo apt update
+sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-echo 'Hello World' | sudo tee /var/www/html/index.html
+sudo echo "Hello World!" | sudo tee file /var/www/html/index.html
 sudo service nginx restart
