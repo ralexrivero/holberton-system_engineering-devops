@@ -39,11 +39,10 @@
 * Puppet
 * Style guidelines puppet: [Puppet Style Guide](https://docs.puppet.com/puppet/latest/style_guide.html)
 * [Puppet lint](https://docs.puppet.com/puppet/latest/reference/puppet_lint.html)
-* Style guideliness shell: ```Shellcheck```
+* [Shellcheck (version 0.7.0)](https://github.com/koalaman/shellcheck#installing)
+* [Shellcheck issues](https://github.com/koalaman/shellcheck/wiki/SC2034)
 
-# Execute
-
-
+## Execute
 
 ## Autor
 
