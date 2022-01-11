@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# redirection 301
-sudo apt update
-sudo apt-get -y install nginx
+#1. Install nginx web server
+sudo apt-get update -y
+sudo apt-get install nginx -y
 sudo ufw allow 'Nginx HTTP'
-sudo echo "Hello World!" | sudo tee file /var/www/html/index.html
-sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+echo "Hello World!" | sudo tee file /var/www/html/index.html
+sudo sed -i '/server_name _;/a rewrite ^/redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 sudo service nginx restart
