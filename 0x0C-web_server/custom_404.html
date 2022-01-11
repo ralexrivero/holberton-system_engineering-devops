@@ -10,17 +10,27 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <meta charset="utf-8">
   <title>404 Page Not Found</title>
-</head>
 <style>
+  html {
+  box-sizing: border-box;
+}
   body {
-    background-color: #fbfbfb;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #5c5c5c;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: space-between;
   }
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
   }
   h1 {
     color: #555;
@@ -32,6 +42,8 @@
     color: #888;
   }
   footer {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     margin-top: auto;
     text-align: center;
@@ -48,8 +60,11 @@
   margin: 20px;
   padding: 20px;
   }
+  .mdc-top-app-bar {
+    background-color: #000;
+  }
 </style>
-
+</head>
 <body>
   <header class="mdc-top-app-bar">
     <div class="mdc-top-app-bar__row">
