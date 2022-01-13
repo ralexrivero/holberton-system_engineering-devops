@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+# short script to run nginx and fix port 80
