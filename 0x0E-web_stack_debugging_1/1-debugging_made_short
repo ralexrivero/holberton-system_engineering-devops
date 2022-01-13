@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
 # short script to run nginx and fix port 80
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+pkill nginx
