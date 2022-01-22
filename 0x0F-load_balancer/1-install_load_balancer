@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# Configure HAproxy with version 1.6.* so that it send traffic to web-01 and web-02, roundrobin
+# Configure HAproxy so that it send traffic to web-01 and web-02 using roundrobin
 
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get -y install haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
+sudo sed -i "s/ENABLED=0/ENABLED=1/g" /etc/default/haproxy
 sudo sed -i "$ a\listen 3284-lb-01\n\tbind *:80\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 3284-web-01 35.231.236.4:80 check\n\tserver 3284-web-02 34.74.187.179:80 check" /etc/haproxy/haproxy.cfg
 sudo service haproxy restart

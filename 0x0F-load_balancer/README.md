@@ -10,8 +10,10 @@
 ## Environment
 
 * Ubuntu 16.04 LTS
-* Style guidelines: ``shellcheck`` 0.3.7
 * Shell: Bash 4.3
+* Style guidelines: ``shellcheck`` 0.3.7
+* ``vim``, ``VS Code``
+* ``haproxy`` 1.6.*
 
 ## Run the code
 
