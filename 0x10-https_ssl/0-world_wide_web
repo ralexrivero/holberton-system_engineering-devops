@@ -1,3 +1,14 @@
 #!/usr/bin/env bash
 # display information about subdomains. Arguments =  domain: type=> string, what=> domain name to audit, mandatory=> yes. Subdomain = type=> string, what=> specific subdomain to audit, mandatory => no. Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
 
+if [ "$#" -eq 1 ];
+then
+	subdomain=("www" "lb-01" "web-01" "web-02")
+	for i in "${subdomain[@]}"
+	do
+	dig "$i"."$1"| grep -A1 'ANSWER SECTION:' | awk 'NR==2{SUB=$1; REC=$4; DEST=$5; print "The subdomain " SUB, "is a " REC, "record and points to " DEST}';
+	done
+elif [ "$#" -eq 2 ];
+then
+	dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR==2{SUB=$1; REC=$4; DEST=$5; print "The subdomain " SUB, "is a " REC, "record and points to " DEST}';
+fi
