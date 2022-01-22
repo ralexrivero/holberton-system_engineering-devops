@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-# 
+# display information about subdomains. Arguments =  domain: type=> string, what=> domain name to audit, mandatory=> yes. Subdomain = type=> string, what=> specific subdomain to audit, mandatory => no. Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+
