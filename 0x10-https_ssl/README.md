@@ -28,6 +28,22 @@
 ## Run the code
 
 ```bash
+ralex@ralex-nb:~$ dig xelar.tech | grep -A1 'ANSWER SECTION:'
+;; ANSWER SECTION:
+xelar.tech.		4151	IN	A	54.165.191.52
+ralex@ralex-nb:~$ dig www.xelar.tech | grep -A1 'ANSWER SECTION:'
+;; ANSWER SECTION:
+www.xelar.tech.		4502	IN	A	54.165.191.52
+ralex@ralex-nb:~$ dig lb-01.xelar.tech | grep -A1 'ANSWER SECTION:'
+;; ANSWER SECTION:
+lb-01.xelar.tech.	4502	IN	A	54.165.191.52
+ralex@ralex-nb:~$ dig web-01.xelar.tech | grep -A1 'ANSWER SECTION:'
+;; ANSWER SECTION:
+web-01.xelar.tech.	4502	IN	A	35.231.236.4
+ralex@ralex-nb:~$ dig web-02.xelar.tech | grep -A1 'ANSWER SECTION:'
+;; ANSWER SECTION:
+web-02.xelar.tech.	4502	IN	A	34.74.187.179
+ralex@ralex-nb:~$ 
 
 ```
 
