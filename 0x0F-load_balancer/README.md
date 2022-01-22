@@ -13,6 +13,46 @@
 * Style guidelines: ``shellcheck`` 0.3.7
 * Shell: Bash 4.3
 
+## Run the code
+
+```bash
+vagrant@ubuntu-xenial:~$ curl -sI 35.231.236.4 | grep X-Served-By
+X-Served-By: 3284-web-01
+vagrant@ubuntu-xenial:~$ curl -sI 34.74.187.179 | grep X-Served-By
+X-Served-By: 3284-web-02
+vagrant@ubuntu-xenial:~$
+```
+
+_On load balancer server_
+
+```bash
+vagrant@ubuntu-xenial:~$ curl -sI 54.165.191.52
+HTTP/1.1 200 OK
+server: nginx/1.18.0 (Ubuntu)
+date: Sat, 22 Jan 2022 00:17:36 GMT
+content-type: text/html
+content-length: 13
+last-modified: Tue, 11 Jan 2022 02:41:04 GMT
+etag: "61dcee40-d"
+x-served-by: 3284-web-01
+accept-ranges: bytes
+connection: close
+
+vagrant@ubuntu-xenial:~$ curl -sI 54.165.191.52
+HTTP/1.1 200 OK
+server: nginx/1.18.0 (Ubuntu)
+date: Sat, 22 Jan 2022 00:17:44 GMT
+content-type: text/html
+content-length: 612
+last-modified: Fri, 21 Jan 2022 21:05:10 GMT
+etag: "61eb2006-264"
+x-served-by: 3284-web-02
+accept-ranges: bytes
+connection: close
+
+vagrant@ubuntu-xenial:~$ 
+```
+
 ## Author
 
 <!-- twitter -->
