@@ -6,13 +6,14 @@ sudo apt-get upgrade
 sudo apt-get -y install haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original2
 echo "
-frontend loadbalancer
-        bind *:80
+listen 3284-lb-01
+        bind 0:80
         mode http
-        default_backend webservers
-backend webservers
+        stats enable
         balance roundrobin
-        server 3284-web-01 35.231.236.4:80 check
-        server 3284-web-02 34.74.187.179:80 check
+        option httpclose
+        option forwardfor
+        server 3284-web-01 35.231.236.4 check port 80
+        server 3284-web-02 34.74.187.179 check port 80
 " | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
