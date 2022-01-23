@@ -44,7 +44,14 @@ ralex@ralex-nb:~$ dig web-02.xelar.tech | grep -A1 'ANSWER SECTION:'
 ;; ANSWER SECTION:
 web-02.xelar.tech.	4502	IN	A	34.74.187.179
 ralex@ralex-nb:~$ 
-
+ralex@ralex-nb:~$ ./0-world_wide_web xelar.tech
+The subdomain www is a A record and points to 54.165.191.52
+The subdomain lb-01 is a A record and points to 54.165.191.52
+The subdomain web-01 is a A record and points to 35.231.236.4
+The subdomain web-02 is a A record and points to 34.74.187.179
+ralex@ralex-nb:~$ ./0-world_wide_web xelar.tech web-02
+The subdomain web-02 is a A record and points to 34.74.187.179
+ralex@ralex-nb:~$ 
 ```
 
 # Author
