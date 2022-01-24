@@ -26,8 +26,25 @@
 * ``ssh``
 * ``vim`` ``VS Code``
 * ``ufw``
+* ``telnet``
+* ``netstat``
 
 ## Run the code
+
+> check if a given socket is open
+
+```bash
+vagrant@ubuntu-xenial:~$ telnet web-01.xelar.tech 22
+Trying 35.231.236.4...
+Connected to web-01.xelar.tech.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.4
+Connection closed by foreign host.
+vagrant@ubuntu-xenial:~$ telnet web-01.xelar.tech 2222
+Trying 35.231.236.4...
+^C
+vagrant@ubuntu-xenial:~$ 
+```
 
 > blocks all incoming traffic, except the following TCP ports:
 >
@@ -75,6 +92,94 @@ To                         Action      From
 80/tcp (v6)                ALLOW IN    Anywhere (v6)
 ```
 
+> install netstat
+
+```bash
+ubuntu@3284-web-01:~$ sudo apt-get update
+ubuntu@3284-web-01:~$ sudo apt-get install net-tools
+```
+
+```bash
+ubuntu@3284-web-01:~$ netstat --version
+net-tools 2.10-alpha
+Fred Baumgarten, Alan Cox, Bernd Eckenfels, Phil Blundell, Tuan Hoang, Brian Micek and others
++NEW_ADDRT +RTF_IRTT +RTF_REJECT +FW_MASQUERADE +I18N +SELINUX
+AF: (inet) +UNIX +INET +INET6 +IPX +AX25 +NETROM +X25 +ATALK +ECONET +ROSE -BLUETOOTH
+HW:  +ETHER +ARC +SLIP +PPP +TUNNEL -TR +AX25 +NETROM +X25 +FR +ROSE +ASH +SIT +FDDI +HIPPI +HDLC/LAPB +EUI64 
+```
+
+> listening server sockets, PID/program name for socket, dont resolve names
+
+```bash
+ubuntu@3284-web-01:~$ netstat -lpn
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+tcp6       0      0 :::80                   :::*                    LISTEN      -                   
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           -                   
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   
+udp        0      0 10.10.0.180:68          0.0.0.0:*                           -                   
+udp6       0      0 ::1:323                 :::*                                -                   
+raw6       0      0 :::58                   :::*                    7           -                   
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name     Path
+unix  2      [ ACC ]     STREAM     LISTENING     343372   17522/systemd        /run/user/1000/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     343378   17522/systemd        /run/user/1000/bus
+unix  2      [ ACC ]     STREAM     LISTENING     343379   17522/systemd        /run/user/1000/gnupg/S.dirmngr
+unix  2      [ ACC ]     STREAM     LISTENING     13313    -                    @/org/kernel/linux/storage/multipathd
+unix  2      [ ACC ]     STREAM     LISTENING     343380   17522/systemd        /run/user/1000/gnupg/S.gpg-agent.browser
+unix  2      [ ACC ]     STREAM     LISTENING     343381   17522/systemd        /run/user/1000/gnupg/S.gpg-agent.extra
+unix  2      [ ACC ]     STREAM     LISTENING     343382   17522/systemd        /run/user/1000/gnupg/S.gpg-agent.ssh
+unix  2      [ ACC ]     STREAM     LISTENING     343383   17522/systemd        /run/user/1000/gnupg/S.gpg-agent
+unix  2      [ ACC ]     STREAM     LISTENING     343384   17522/systemd        /run/user/1000/pk-debconf-socket
+unix  2      [ ACC ]     STREAM     LISTENING     343385   17522/systemd        /run/user/1000/snapd-session-agent.socket
+unix  2      [ ACC ]     STREAM     LISTENING     19471    -                    /var/snap/lxd/common/lxd/unix.socket
+unix  2      [ ACC ]     STREAM     LISTENING     13300    -                    /run/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     13302    -                    /run/systemd/userdb/io.systemd.DynamicUser
+unix  2      [ ACC ]     STREAM     LISTENING     13311    -                    /run/lvm/lvmpolld.socket
+unix  2      [ ACC ]     STREAM     LISTENING     13316    -                    /run/systemd/fsck.progress
+unix  2      [ ACC ]     STREAM     LISTENING     13326    -                    /run/systemd/journal/stdout
+unix  2      [ ACC ]     SEQPACKET  LISTENING     13331    -                    /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     14313    -                    /run/systemd/journal/io.systemd.journal
+unix  2      [ ACC ]     STREAM     LISTENING     19470    -                    @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     19466    -                    /run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     19473    -                    /run/snapd.socket
+unix  2      [ ACC ]     STREAM     LISTENING     19475    -                    /run/snapd-snap.socket
+unix  2      [ ACC ]     STREAM     LISTENING     19478    -                    /run/uuidd/request
+```
+
+> firewall redirects port 8080/TCP to port 80/TCP.
+
+> allow 8080 traffic
+
+```bash
+sudo ufw allow 8080/tcp
+```
+
+> change config file
+
+```bash
+ubuntu@3284-web-01:~$ sudo vim /etc/ufw/before.rules
+```
+
+> add at the top
+
+```
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+COMMIT
+```
+
+```bash
+ubuntu@3284-web-01:~$ sudo ufw reload
+Firewall reloaded
+```
 # Author
 
 <!-- twitter -->
