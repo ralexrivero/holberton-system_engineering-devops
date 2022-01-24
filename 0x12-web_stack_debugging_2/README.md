@@ -51,14 +51,31 @@ www-data
 root@c80cd6823986:/# whoami
 root
 root@c80cd6823986:/# 
-
-
 ```
 
 > run Nginx as ``nginx`` user
 
 ```bash
-
+root@c80cd6823986:/# ps auxff
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root       141  0.0  0.0  18256  2452 pts/0    Ss   22:33   0:00 /bin/bash
+root       823  0.0  0.0  15572  2080 pts/0    R+   23:26   0:00  \_ ps auxff
+root         1  0.0  0.0  17976   296 ?        Ss   22:32   0:00 /bin/bash ./tmp/run.sh
+root       140  0.0  0.0  61388   244 ?        S    22:32   0:00 /usr/sbin/sshd -D
+root       816  0.0  0.0  85944  2768 ?        Ss   23:26   0:00 nginx: master process /usr/sbin/nginx
+nobody     817  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+nobody     818  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+nobody     820  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+nobody     821  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+root@c80cd6823986:/# ps auxff | grep ngin[x]
+root       816  0.0  0.0  85944  2768 ?        Ss   23:26   0:00 nginx: master process /usr/sbin/nginx
+nobody     817  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+nobody     818  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+nobody     820  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+nobody     821  0.0  0.0  86248  3512 ?        S    23:26   0:00  \_ nginx: worker process
+root@c80cd6823986:/# nc -z 0 8080 ; echo $?
+0
+root@c80cd6823986:/# nc -z 0 80 ; echo $?
 ```
 
 ## Author
