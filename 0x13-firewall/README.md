@@ -29,6 +29,52 @@
 
 ## Run the code
 
+> blocks all incoming traffic, except the following TCP ports:
+>
+> 22 (SSH)
+>
+> 443 (HTTPS SSL)
+>
+> 80 (HTTP)
+>
+
+```bash
+ubuntu@3284-web-01:~$ ufw --version
+ufw 0.36
+Copyright 2008-2015 Canonical Ltd.
+ubuntu@3284-web-01:~$ man ufw
+ubuntu@3284-web-01:~$ sudo ufw allow 22/tcp
+Rules updated
+Rules updated (v6)
+ubuntu@3284-web-01:~$ sudo ufw allow 443/tcp
+Rules updated
+Rules updated (v6)
+ubuntu@3284-web-01:~$ sudo ufw allow 80/tcp
+Rules updated
+Rules updated (v6)
+ubuntu@3284-web-01:~$ sudo ufw status verbose
+Status: inactive
+ubuntu@3284-web-01:~$ sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+ubuntu@3284-web-01:~$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+80/tcp (Nginx HTTP)        ALLOW IN    Anywhere
+22/tcp                     ALLOW IN    Anywhere
+443/tcp                    ALLOW IN    Anywhere
+80/tcp                     ALLOW IN    Anywhere
+80/tcp (Nginx HTTP (v6))   ALLOW IN    Anywhere (v6)
+22/tcp (v6)                ALLOW IN    Anywhere (v6)
+443/tcp (v6)               ALLOW IN    Anywhere (v6)
+80/tcp (v6)                ALLOW IN    Anywhere (v6)
+```
+
 # Author
 
 <!-- twitter -->
