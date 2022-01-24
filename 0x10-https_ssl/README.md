@@ -80,7 +80,61 @@ $ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 ```bash
 $ sudo service haproxy stop
-$ sudo certbot certonly --standalone
+$ sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d xelar.tech -d www.xelar.tech
+$ sudo ls /etc/letsencrypt/live/xelar.tech
+```
+
+> copy certificate to haproxy
+
+```bash
+$ sudo mkdir -p /etc/haproxy/certs
+DOMAIN='xelar.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+$ sudo chmod -R go-rwx /etc/haproxy/certs
+```
+
+> config.cfg in haproxy
+
+_global_
+
+```maxconn 2048```
+```tune.ssl.default-dh-param 2048```
+
+_defaults_
+
+```option forwardfor```
+```option http-server-close```
+
+_frontend_
+
+```
+frontend loadbalancerssl
+        bind *:443 ssl crt /etc/haproxy/certs/xelar.tech.pem
+        http-request add-header X-Forwarded-Proto https if { ssl_fc }
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
+        default_backend webservers
+```
+
+_backend_
+
+```redirect scheme https if !{ ssl_fc }```
+
+only for renewal traffic
+
+```
+backend letsencrypt-backend
+        server letsencrypt 127.0.0.1:54321
+```
+
+> verify if haproxy.cfg contain a valid configuration
+
+```bash
+$ haproxy -f /etc/haproxy/haproxy.cfg -c
+```
+
+> resart haproxy server
+
+```bash
 $ sudo service haproxy restart
 ```
 > test automatical renewal
