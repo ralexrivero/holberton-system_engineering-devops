@@ -101,65 +101,53 @@ ubuntu@3284-web-01:~$ sudo apt-get install net-tools
 
 ```bash
 ubuntu@3284-web-01:~$ netstat --version
-net-tools 2.10-alpha
-Fred Baumgarten, Alan Cox, Bernd Eckenfels, Phil Blundell, Tuan Hoang, Brian Micek and others
-+NEW_ADDRT +RTF_IRTT +RTF_REJECT +FW_MASQUERADE +I18N +SELINUX
-AF: (inet) +UNIX +INET +INET6 +IPX +AX25 +NETROM +X25 +ATALK +ECONET +ROSE -BLUETOOTH
-HW:  +ETHER +ARC +SLIP +PPP +TUNNEL -TR +AX25 +NETROM +X25 +FR +ROSE +ASH +SIT +FDDI +HIPPI +HDLC/LAPB +EUI64 
 ```
 
 > listening server sockets, PID/program name for socket, dont resolve names
 
 ```bash
 ubuntu@3284-web-01:~$ netstat -lpn
-(Not all processes could be identified, non-owned process info
- will not be shown, you would have to be root to see it all.)
-Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -                   
-tcp6       0      0 :::22                   :::*                    LISTEN      -                   
-tcp6       0      0 :::80                   :::*                    LISTEN      -                   
-udp        0      0 127.0.0.1:323           0.0.0.0:*                           -                   
-udp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   
-udp        0      0 10.10.0.180:68          0.0.0.0:*                           -                   
-udp6       0      0 ::1:323                 :::*                                -                   
-raw6       0      0 :::58                   :::*                    7           -                   
-Active UNIX domain sockets (only servers)
-Proto RefCnt Flags       Type       State         I-Node   PID/Program name     Path
-unix  2      [ ACC ]     STREAM     LISTENING     343372   17522/systemd        /run/user/1000/systemd/private
-unix  2      [ ACC ]     STREAM     LISTENING     343378   17522/systemd        /run/user/1000/bus
-unix  2      [ ACC ]     STREAM     LISTENING     343379   17522/systemd        /run/user/1000/gnupg/S.dirmngr
-unix  2      [ ACC ]     STREAM     LISTENING     13313    -                    @/org/kernel/linux/storage/multipathd
-unix  2      [ ACC ]     STREAM     LISTENING     343380   17522/systemd        /run/user/1000/gnupg/S.gpg-agent.browser
-unix  2      [ ACC ]     STREAM     LISTENING     343381   17522/systemd        /run/user/1000/gnupg/S.gpg-agent.extra
-unix  2      [ ACC ]     STREAM     LISTENING     343382   17522/systemd        /run/user/1000/gnupg/S.gpg-agent.ssh
-unix  2      [ ACC ]     STREAM     LISTENING     343383   17522/systemd        /run/user/1000/gnupg/S.gpg-agent
-unix  2      [ ACC ]     STREAM     LISTENING     343384   17522/systemd        /run/user/1000/pk-debconf-socket
-unix  2      [ ACC ]     STREAM     LISTENING     343385   17522/systemd        /run/user/1000/snapd-session-agent.socket
-unix  2      [ ACC ]     STREAM     LISTENING     19471    -                    /var/snap/lxd/common/lxd/unix.socket
-unix  2      [ ACC ]     STREAM     LISTENING     13300    -                    /run/systemd/private
-unix  2      [ ACC ]     STREAM     LISTENING     13302    -                    /run/systemd/userdb/io.systemd.DynamicUser
-unix  2      [ ACC ]     STREAM     LISTENING     13311    -                    /run/lvm/lvmpolld.socket
-unix  2      [ ACC ]     STREAM     LISTENING     13316    -                    /run/systemd/fsck.progress
-unix  2      [ ACC ]     STREAM     LISTENING     13326    -                    /run/systemd/journal/stdout
-unix  2      [ ACC ]     SEQPACKET  LISTENING     13331    -                    /run/udev/control
-unix  2      [ ACC ]     STREAM     LISTENING     14313    -                    /run/systemd/journal/io.systemd.journal
-unix  2      [ ACC ]     STREAM     LISTENING     19470    -                    @ISCSIADM_ABSTRACT_NAMESPACE
-unix  2      [ ACC ]     STREAM     LISTENING     19466    -                    /run/dbus/system_bus_socket
-unix  2      [ ACC ]     STREAM     LISTENING     19473    -                    /run/snapd.socket
-unix  2      [ ACC ]     STREAM     LISTENING     19475    -                    /run/snapd-snap.socket
-unix  2      [ ACC ]     STREAM     LISTENING     19478    -                    /run/uuidd/request
+```
+```bash
+ubuntu@3284-web-01:~$ grep listen /etc/nginx/sites-enabled/default
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	# listen 443 ssl default_server;
+	# listen [::]:443 ssl default_server;
+#	listen 80;
+#	listen [::]:80;
+ubuntu@3284-web-01:~$ 
+```
+
+```bash
+vagrant@ubuntu-xenial:~$ curl -sI web-01.xelar.tech:80
+HTTP/1.1 200 OK
+Server: nginx/1.18.0 (Ubuntu)
+Date: Mon, 24 Jan 2022 22:10:07 GMT
+Content-Type: text/html
+Content-Length: 17
+Last-Modified: Mon, 24 Jan 2022 06:34:06 GMT
+Connection: keep-alive
+ETag: "61ee485e-11"
+X-Served-By: 3284-web-01
+Accept-Ranges: bytes
+
+vagrant@ubuntu-xenial:~$ curl -sI web-01.xelar.tech:8080
+HTTP/1.1 200 OK
+Server: nginx/1.18.0 (Ubuntu)
+Date: Mon, 24 Jan 2022 22:10:13 GMT
+Content-Type: text/html
+Content-Length: 17
+Last-Modified: Mon, 24 Jan 2022 06:34:06 GMT
+Connection: keep-alive
+ETag: "61ee485e-11"
+X-Served-By: 3284-web-01
+Accept-Ranges: bytes
+
+vagrant@ubuntu-xenial:~$ 
 ```
 
 > firewall redirects port 8080/TCP to port 80/TCP.
-
-> allow 8080 traffic
-
-```bash
-sudo ufw allow 8080/tcp
-```
 
 > change config file
 
