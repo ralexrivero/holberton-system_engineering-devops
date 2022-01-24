@@ -40,6 +40,7 @@ defaults
 frontend loadbalancer
         bind *:80
         mode http
+	option httpclose
 	http-request set-header X-Forwarded-Proto http
 	redirect scheme https code 301 if !{ ssl_fc }
         default_backend webservers

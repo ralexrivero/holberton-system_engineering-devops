@@ -177,21 +177,25 @@ vagrant@ubuntu-xenial:~$
 
 ## redirection 301 from http to https
 
+> show header, follow redirect
+
 ```bash
 vagrant@ubuntu-xenial:~$ curl -sIL http://www.xelar.tech
 HTTP/1.1 301 Moved Permanently
 content-length: 0
 location: https://www.xelar.tech/
+connection: close
 
 HTTP/1.1 200 OK
 server: nginx/1.18.0 (Ubuntu)
-date: Mon, 24 Jan 2022 08:06:51 GMT
+date: Mon, 24 Jan 2022 17:46:49 GMT
 content-type: text/html
 content-length: 17
-last-modified: Mon, 24 Jan 2022 06:38:25 GMT
-etag: "61ee4961-11"
-x-served-by: 3284-web-02
+last-modified: Mon, 24 Jan 2022 06:34:06 GMT
+etag: "61ee485e-11"
+x-served-by: 3284-web-01
 accept-ranges: bytes
+
 
 vagrant@ubuntu-xenial:~$ 
 ```
