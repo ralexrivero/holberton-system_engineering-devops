@@ -1,7 +1,11 @@
-# 0x10. HTTPS SSL
+# 0x10. HTTPS SSL 🔒
 
 ```bash
-
+███████ ███████ ██ 
+██      ██      ██ 
+███████ ███████ ██ 
+     ██      ██ ██ 
+███████ ███████ ███████
 ```
 
 ## Overview
@@ -24,6 +28,8 @@
 * Editors: ``vim``, ``VS Code``
 * ``awk``
 * ``dig``
+* ``snap`` snapd
+* ``certbot``
 
 ## Run the code
 
@@ -52,6 +58,35 @@ The subdomain web-02 is a A record and points to 34.74.187.179
 ralex@ralex-nb:~$ ./0-world_wide_web xelar.tech web-02
 The subdomain web-02 is a A record and points to 34.74.187.179
 ralex@ralex-nb:~$ 
+```
+
+## install certbot
+
+> show linux distro, install snapd, install certbot
+
+```bash
+$ lsb_release -a
+$ sudo apt update
+$ sudo apt install snapd
+$ sudo apt-get upgrade
+$ sudo snap install hello-world
+$ sudo snap install core; sudo snap refresh core
+$ sudo apt-get remove certbot
+$ sudo snap install --classic certbot
+$ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+
+> stop haproxy, install certificate and restart haproxy
+
+```bash
+$ sudo service haproxy stop
+$ sudo certbot certonly --standalone
+$ sudo service haproxy restart
+```
+> test automatical renewal
+
+```bash
+$ sudo certbot renew --dry-run
 ```
 
 # Author
