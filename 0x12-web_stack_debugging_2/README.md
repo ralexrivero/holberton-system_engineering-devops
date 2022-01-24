@@ -37,10 +37,29 @@
 * Editor: ``vim``, ``VS Code``
 * ``ssh``
 * ``whoami``
+* ``sudo``
 
 ## Run the code
 
-> 
+> run anything as another user
+
+```bash
+root@c80cd6823986:/# whoami
+root
+root@c80cd6823986:/# ./0-iamsomeoneelse www-data
+www-data
+root@c80cd6823986:/# whoami
+root
+root@c80cd6823986:/# 
+
+
+```
+
+> run Nginx as ``nginx`` user
+
+```bash
+
+```
 
 ## Author
 

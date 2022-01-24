@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-# 
+# Nginx is running as the nginx user.
+
