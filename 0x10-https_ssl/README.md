@@ -21,7 +21,7 @@
 [![Vim](https://img.shields.io/static/v1?label=&message=Vim&color=019733&logo=Vim&logoColor=019733&labelColor=2F333A)](https://www.vim.org/) <!-- vs code -->
 [![VS Code](https://img.shields.io/static/v1?label=&message=Visual%20Studio%20Code&color=5C2D91&logo=Visual%20Studio%20Code&logoColor=5C2D91&labelColor=2F333A)](https://code.visualstudio.com/)
 
-* OS: ``ubuntu`` 16.04
+* OS: ``ubuntu`` 20.04
 * Shell: ``bash``
 * ``ssh``
 * Style guidelines: ``shellcheck`` 0.3.7
@@ -129,7 +129,7 @@ backend letsencrypt-backend
 > verify if haproxy.cfg contain a valid configuration
 
 ```bash
-$ haproxy -f /etc/haproxy/haproxy.cfg -c
+$ sudo haproxy -f /etc/haproxy/haproxy.cfg -c
 ```
 
 > resart haproxy server
@@ -142,6 +142,39 @@ $ sudo service haproxy restart
 ```bash
 $ sudo certbot renew --dry-run
 ```
+
+## test ssl
+
+```bash
+vagrant@ubuntu-xenial:~$ curl -sI https://www.xelar.tech
+HTTP/1.1 200 OK
+server: nginx/1.18.0 (Ubuntu)
+date: Mon, 24 Jan 2022 06:38:37 GMT
+content-type: text/html
+content-length: 17
+last-modified: Mon, 24 Jan 2022 06:34:06 GMT
+etag: "61ee485e-11"
+x-served-by: 3284-web-01
+accept-ranges: bytes
+
+vagrant@ubuntu-xenial:~$ curl -sI https://www.xelar.tech
+HTTP/1.1 200 OK
+server: nginx/1.18.0 (Ubuntu)
+date: Mon, 24 Jan 2022 06:38:42 GMT
+content-type: text/html
+content-length: 17
+last-modified: Mon, 24 Jan 2022 06:38:25 GMT
+etag: "61ee4961-11"
+x-served-by: 3284-web-02
+accept-ranges: bytes
+
+vagrant@ubuntu-xenial:~$ curl https://www.xelar.tech
+Holberton School
+vagrant@ubuntu-xenial:~$ curl https://www.xelar.tech
+Holberton School
+vagrant@ubuntu-xenial:~$ 
+```
+
 
 # Author
 
