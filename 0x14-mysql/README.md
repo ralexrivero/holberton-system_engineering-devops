@@ -2,12 +2,27 @@
 
 ## General
 
+* Database administration
+* Web stack debugging
+* Primary replica cluster
+* Mysql replica setup
+* Robust database backup strategy
+
 ## Environment
 <!-- ubuntu -->
 [![Ubuntu](https://img.shields.io/static/v1?label=&message=Ubuntu&color=E95420&logo=Ubuntu&logoColor=E95420&labelColor=2F333A)](https://ubuntu.com/) <!-- bash -->
 [![Bash](https://img.shields.io/static/v1?label=&message=GNU%20Bash&color=4EAA25&logo=GNU%20Bash&logoColor=4EAA25&labelColor=2F333A)](https://www.gnu.org/software/bash/) <!-- vim -->
 [![Vim](https://img.shields.io/static/v1?label=&message=Vim&color=019733&logo=Vim&logoColor=019733&labelColor=2F333A)](https://www.vim.org/) <!-- vs code -->
 [![VS Code](https://img.shields.io/static/v1?label=&message=Visual%20Studio%20Code&color=5C2D91&logo=Visual%20Studio%20Code&logoColor=5C2D91&labelColor=2F333A)](https://code.visualstudio.com/)
+
+* OS: ``ubuntu`` 16.04 LTS
+* Shell: ``bash``
+  * shebang: ``#!/usr/bin/env bash``
+* Codestyle guidelines: ``Shellcheck`` 0.3.7
+* IDE: ``vim``, ``VS Code``
+* ``ssh``
+* DBA: ``mysql``
+* ``mysqldump``
 
 ## Author
 
