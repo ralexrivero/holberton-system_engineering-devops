@@ -78,6 +78,12 @@ The key's randomart image is:
 $
 ```
 
+Add the SSH public key to the server
+
+``sudo vim ~/.ssh/authorized_keys``
+
+and add the key
+
 ## Autor
 
 >```Ronald Rivero```
