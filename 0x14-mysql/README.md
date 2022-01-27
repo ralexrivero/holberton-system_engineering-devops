@@ -27,18 +27,27 @@
 ## Install mysql
 
 * confirm that mysql is not running
-``ps ax | grep mysql
-``ls -al /usr/sbin/mysql*``
-``ls -al /usr/bin/mysql*``
-``ls -al /usr/lib/mysql*``
-``ls -al /var/lib/mysql*``
-* download deb package
-``curl -O https://repo.mysql.com//mysql-apt-config_0.8.22-1_all.deb``
-* update
-``sudo apt-get update``
-* install mysql
-``sudo dpkg -i mysql-apt-config_0.8.22-1_all.deb``
+```bash
+$ ps ax | grep mysql
+```
 
+* install mysql
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get autoremove
+$ sudo apt update
+$ apt list --upgradable
+$ sudo apt upgrade
+$ sudo apt install wget -y
+$ wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+$ sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+$ sudo apt-get update
+$ sudo apt-cache policy mysql-server
+$ sudo mysql_secure_installation
+$ mysql -u root -p 
+```
 
 ## Author
 
