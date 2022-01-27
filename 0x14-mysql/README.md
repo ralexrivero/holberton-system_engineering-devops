@@ -1,5 +1,14 @@
 # 0x14. MySQL
 
+```bash
+███    ███ ██    ██ ███████  ██████  ██ 
+████  ████  ██  ██  ██      ██    ██ ██ 
+██ ████ ██   ████   ███████ ██    ██ ██ 
+██  ██  ██    ██         ██ ██ ▄▄ ██ ██ 
+██      ██    ██    ███████  ██████  ███████ 
+                                ▀▀    
+```
+
 ## General
 
 * Database administration
@@ -36,8 +45,6 @@ $ ps ax | grep mysql
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get autoremove
-$ sudo apt update
 $ apt list --upgradable
 $ sudo apt upgrade
 $ sudo apt install wget -y
@@ -45,8 +52,17 @@ $ wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
 $ sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
 $ sudo apt-get update
 $ sudo apt-cache policy mysql-server
+$ sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
 $ sudo mysql_secure_installation
-$ mysql -u root -p 
+$ mysql -u root -p
+```
+
+* verify mysql version
+
+```bash
+ubuntu@3284-web-02:~$ mysql --version
+mysql  Ver 14.14 Distrib 5.7.37, for Linux (x86_64) using  EditLine wrapper
+ubuntu@3284-web-02:~$ 
 ```
 
 ## Author
