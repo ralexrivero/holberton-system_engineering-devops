@@ -65,6 +65,18 @@ mysql  Ver 14.14 Distrib 5.7.37, for Linux (x86_64) using  EditLine wrapper
 ubuntu@3284-web-02:~$ 
 ```
 
+## check user
+
+```bash
+ubuntu@3284-web-01:~$ mysql -uholberton_user -p -e "SHOW GRANTS FOR 'holberton_user'@'localhost'"
+Enter password: 
++-----------------------------------------------------------------+
+| Grants for holberton_user@localhost                             |
++-----------------------------------------------------------------+
+| GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost' |
++-----------------------------------------------------------------+
+ubuntu@3284-web-01:~$ 
+```
 ## Author
 
 <!-- twitter -->
