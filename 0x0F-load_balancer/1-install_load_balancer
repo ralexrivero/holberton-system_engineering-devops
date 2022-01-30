@@ -13,7 +13,7 @@ listen 3284-lb-01
         balance roundrobin
         option httpclose
         option forwardfor
-        server 3284-web-01 35.231.236.4 check port 80
-        server 3284-web-02 34.74.187.179 check port 80
+        server 3284-web-01 54.90.97.98 check port 80
+        server 3284-web-02 54.226.88.203 check port 80
 " | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo service haproxy restart

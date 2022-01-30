@@ -160,7 +160,7 @@ ubuntu@3284-web-01:~$ sudo vim /etc/ufw/before.rules
 ```
 *nat
 :PREROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
 COMMIT
 ```
 
