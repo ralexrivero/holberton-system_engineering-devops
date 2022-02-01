@@ -35,6 +35,18 @@
 * ``telnet``
 * ``docker``
 
+> https://www.tcpdump.org/
+
+## Sniffing unencrypted traffic 
+
+> Sniffing over ``ubuntu`` 20.04 LTS booting on Linux 4.26. generic
+
+> sniffing unencrypted traffic and getting information out of it.
+
+```bash
+
+```
+
 ## Brute attack force
 
 Pull docker image
