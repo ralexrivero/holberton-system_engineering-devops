@@ -91,7 +91,7 @@ $ sudo mkdir -p /etc/haproxy/certs
 DOMAIN='xelar.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
 $ sudo chmod -R go-rwx /etc/haproxy/certs
 ```
-
+ 
 > config.cfg in haproxy
 
 _global_
