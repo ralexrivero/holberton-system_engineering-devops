@@ -26,7 +26,7 @@
 [![Vim](https://img.shields.io/static/v1?label=&message=Vim&color=019733&logo=Vim&logoColor=019733&labelColor=2F333A)](https://www.vim.org/) <!-- vs code -->
 [![VS Code](https://img.shields.io/static/v1?label=&message=Visual%20Studio%20Code&color=5C2D91&logo=Visual%20Studio%20Code&logoColor=5C2D91&labelColor=2F333A)](https://code.visualstudio.com/)
 
-* OS: ``ubuntu``
+* OS: ``ubuntu``, ``kali``
 * Shell: ``bash``
 * IDE: ``vim``, ``VS Code``
 * ``ssh``
@@ -35,16 +35,20 @@
 * ``telnet``
 * ``docker``
 
-> https://www.tcpdump.org/
+> [tcpdump.org](https://www.tcpdump.org/)
 
-## Sniffing unencrypted traffic 
+## Sniffing unencrypted traffic
 
 > Sniffing over ``ubuntu`` 20.04 LTS booting on Linux 4.26. generic
-
+>
+> Kali Linux: Kali GNU/Linux Rolling 2021.4
+>
 > sniffing unencrypted traffic and getting information out of it.
+>
+> export for wireshark
 
 ```bash
-
+./user_authenticating_into_server| sudo tcpdump -i any -s 65535 -w outputforwire.txt
 ```
 
 ## Brute attack force
@@ -64,7 +68,7 @@ f6e64ceecab2c913fac1a15f2f2f66669dac8fd6b8f9a563ae30810f19852719
 ralex@ralex-nb:~$ docker ps
 CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS              PORTS                                   NAMES
 f6e64ceecab2   sylvainkalache/264-1   "/bin/sh -c 'service…"   About a minute ago   Up About a minute   0.0.0.0:2222->22/tcp, :::2222->22/tcp   quizzical_curran
-ralex@ralex-nb:~$ 
+ralex@ralex-nb:~$
 ```
 
 brute force docker with hydra
