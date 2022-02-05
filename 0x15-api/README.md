@@ -22,12 +22,9 @@
 * Language: ``python`` 3.8.3
 * Shebang: ``#!/usr/bin/python3``
 * Style guidelines: ``pep8``, ``pycodestyle``
-*
 
 ## Test documentation
 
 ```bash
 python3 -c 'print(__import__("my_module").__doc__)'
 ```
-
-
