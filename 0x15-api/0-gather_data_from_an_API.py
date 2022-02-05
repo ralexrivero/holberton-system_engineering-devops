@@ -6,9 +6,10 @@
 
 import requests
 from sys import argv
-userId = int(argv[1])
+
 
 if __name__ == "__main__":
+    userId = int(argv[1])
     url = "https://jsonplaceholder.typicode.com/users/1/todos"
     r = requests.get(url)
     data = r.json()
