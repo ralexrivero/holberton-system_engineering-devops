@@ -16,7 +16,7 @@
 
 ## Environment
 
-* OS: ``ubuntu`` 20.04 LTS, 14.04 LTS
+* OS: ``ubuntu`` 20.04 LTS, 14.04 LTS, ``kali`` 2020.1
 * Shell: ``bash``
 * IDE: ``vim``, ``vs code``
 * Language: ``python`` 3.8.3
@@ -27,4 +27,18 @@
 
 ```bash
 python3 -c 'print(__import__("my_module").__doc__)'
+```
+
+> run test
+
+```bash
+┌──(ralex㉿xelar)-[~]
+└─$ python3 -c 'print(__import__("0-gather_data_from_an_API").__doc__)'
+
+    using a REST API, for a given employee ID
+    returns information about his/her TODO list progress
+
+
+┌──(ralex㉿xelar)-[~]
+└─$
 ```

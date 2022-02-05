@@ -9,19 +9,22 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    userId = int(argv[1])
-    url = "https://jsonplaceholder.typicode.com/users/1/todos"
-    r = requests.get(url)
-    data = r.json()
-    totalNumberOfTasks = len(data)
-    numberOfDoneTasks = 0
-    totalTasks = []
-    for task in data:
-        if task['userId'] == userId and task['completed'] is True:
-            numberOfDoneTasks += 1
-            totalTasks.append(task['title'])
-    print("Employee {} is done with tasks({}/{}):"
-          .format(userId, numberOfDoneTasks, totalNumberOfTasks))
-
-    for task in totalTasks:
-        print("\t{}".format(task))
+    if len(argv) > 1:
+        userId = int(argv[1])
+        url = "https://jsonplaceholder.typicode.com/users/"
+        r = requests.get("{}/{}".format(url, userId))
+        data = r.json()
+        name = r.json().get("name")
+        if name is not None:
+            userTodos = requests.get("{}{}/todos".format(url, userId))
+            userTodos = userTodos.json()
+            taskNumber = len(userTodos)
+            completedTasks = []
+            for task in userTodos:
+                if task.get("completed") is True:
+                    completedTasks.append(task)
+            taskCompletedNumber = len(completedTasks)
+            print("Employee {} is done with tasks {}/{}".format(name, taskCompletedNumber, taskNumber))
+            for task in completedTasks:
+                title = task.get("title")
+                print("\t{}".format(title))
