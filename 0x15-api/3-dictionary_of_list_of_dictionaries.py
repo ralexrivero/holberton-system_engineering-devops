@@ -21,4 +21,3 @@ if __name__ == "__main__":
         userj[userId] = t
     with open("todo_all_employees.json", 'w') as filejs:
         json.dump(userj, filejs)
-
