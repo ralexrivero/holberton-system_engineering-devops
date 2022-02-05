@@ -1,3 +1,7 @@
+# output csv and json
+*.csv
+*.json
+
 # temporal files in vim
 *.swp
 # Byte-compiled / optimized / DLL files
