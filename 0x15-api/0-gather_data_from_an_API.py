@@ -28,4 +28,4 @@ if __name__ == "__main__":
                   .format(name, taskCompletedNumber, taskNumber))
             for task in completedTasks:
                 title = task.get("title")
-                print("\t{}".format(title))
+                print("\t {}".format(title))
