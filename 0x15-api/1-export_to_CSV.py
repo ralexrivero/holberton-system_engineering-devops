@@ -12,13 +12,13 @@ if __name__ == "__main__":
         userId = argv[1]
         url = "https://jsonplaceholder.typicode.com/"
         r = requests.get("{}users/{}".format(url, userId))
-        name = r.json().get('name')
-        if name is not None:
+        username = r.json().get('username')
+        if username is not None:
             todos = requests.get("{}users/{}/todos".format(url, userId)).json()
         with open("{}.csv".format(userId), 'w', newline='') as csvfile:
             writeFile = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
             for task in todos:
                 writeFile.writerow([int(userId),
-                                   name,
+                                   username,
                                    task.get('completed'),
                                    task.get('title')])
