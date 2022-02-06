@@ -36,6 +36,7 @@
 ## Install mysql
 
 * confirm that mysql is not running
+
 ```bash
 $ ps ax | grep mysql
 ```
@@ -62,20 +63,20 @@ $ mysql -u root -p
 ```bash
 ubuntu@3284-web-02:~$ mysql --version
 mysql  Ver 14.14 Distrib 5.7.37, for Linux (x86_64) using  EditLine wrapper
-ubuntu@3284-web-02:~$ 
+ubuntu@3284-web-02:~$
 ```
 
 ## check user
 
 ```bash
 ubuntu@3284-web-01:~$ mysql -uholberton_user -p -e "SHOW GRANTS FOR 'holberton_user'@'localhost'"
-Enter password: 
+Enter password:
 +-----------------------------------------------------------------+
 | Grants for holberton_user@localhost                             |
 +-----------------------------------------------------------------+
 | GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost' |
 +-----------------------------------------------------------------+
-ubuntu@3284-web-01:~$ 
+ubuntu@3284-web-01:~$
 ```
 
 ## configure mysql source and replica
@@ -92,15 +93,15 @@ Status: active
 
 To                         Action      From
 --                         ------      ----
-Nginx HTTP                 ALLOW       Anywhere                  
-22/tcp                     ALLOW       Anywhere                  
-443/tcp                    ALLOW       Anywhere                  
-80/tcp                     ALLOW       Anywhere                  
-3306                       ALLOW       54.226.88.203             
-Nginx HTTP (v6)            ALLOW       Anywhere (v6)             
-22/tcp (v6)                ALLOW       Anywhere (v6)             
-443/tcp (v6)               ALLOW       Anywhere (v6)             
-80/tcp (v6)                ALLOW       Anywhere (v6)             
+Nginx HTTP                 ALLOW       Anywhere
+22/tcp                     ALLOW       Anywhere
+443/tcp                    ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+3306                       ALLOW       54.226.88.203
+Nginx HTTP (v6)            ALLOW       Anywhere (v6)
+22/tcp (v6)                ALLOW       Anywhere (v6)
+443/tcp (v6)               ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
 
 ubuntu@3284-web-01:~$
 ```
@@ -129,7 +130,7 @@ $ sudo systemctl restart mysql
 
 ```bash
 ubuntu@3284-web-01:~$ mysql -u root -p
-Enter password: 
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 2
 Server version: 5.7.37-log MySQL Community Server (GPL)
@@ -150,7 +151,7 @@ mysql> show master status;
 +------------------+----------+--------------+------------------+-------------------+
 1 row in set (0.00 sec)
 
-mysql> 
+mysql>
 ```
 
 > replication user
@@ -265,33 +266,33 @@ mysql> SHOW SLAVE STATUS\G;
         Relay_Master_Log_File: mysql-bin.000001
              Slave_IO_Running: Yes
             Slave_SQL_Running: Yes
-              Replicate_Do_DB: 
-          Replicate_Ignore_DB: 
-           Replicate_Do_Table: 
-       Replicate_Ignore_Table: 
-      Replicate_Wild_Do_Table: 
-  Replicate_Wild_Ignore_Table: 
+              Replicate_Do_DB:
+          Replicate_Ignore_DB:
+           Replicate_Do_Table:
+       Replicate_Ignore_Table:
+      Replicate_Wild_Do_Table:
+  Replicate_Wild_Ignore_Table:
                    Last_Errno: 0
-                   Last_Error: 
+                   Last_Error:
                  Skip_Counter: 0
           Exec_Master_Log_Pos: 951
               Relay_Log_Space: 527
               Until_Condition: None
-               Until_Log_File: 
+               Until_Log_File:
                 Until_Log_Pos: 0
            Master_SSL_Allowed: No
-           Master_SSL_CA_File: 
-           Master_SSL_CA_Path: 
-              Master_SSL_Cert: 
-            Master_SSL_Cipher: 
-               Master_SSL_Key: 
+           Master_SSL_CA_File:
+           Master_SSL_CA_Path:
+              Master_SSL_Cert:
+            Master_SSL_Cipher:
+               Master_SSL_Key:
         Seconds_Behind_Master: 0
 Master_SSL_Verify_Server_Cert: No
                 Last_IO_Errno: 0
-                Last_IO_Error: 
+                Last_IO_Error:
                Last_SQL_Errno: 0
-               Last_SQL_Error: 
-  Replicate_Ignore_Server_Ids: 
+               Last_SQL_Error:
+  Replicate_Ignore_Server_Ids:
              Master_Server_Id: 1
                   Master_UUID: b8a2bb2d-7f24-11ec-aaca-0aeef8871ec3
              Master_Info_File: /var/lib/mysql/master.info
@@ -299,20 +300,20 @@ Master_SSL_Verify_Server_Cert: No
           SQL_Remaining_Delay: NULL
       Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
            Master_Retry_Count: 86400
-                  Master_Bind: 
-      Last_IO_Error_Timestamp: 
-     Last_SQL_Error_Timestamp: 
-               Master_SSL_Crl: 
-           Master_SSL_Crlpath: 
-           Retrieved_Gtid_Set: 
-            Executed_Gtid_Set: 
+                  Master_Bind:
+      Last_IO_Error_Timestamp:
+     Last_SQL_Error_Timestamp:
+               Master_SSL_Crl:
+           Master_SSL_Crlpath:
+           Retrieved_Gtid_Set:
+            Executed_Gtid_Set:
                 Auto_Position: 0
-         Replicate_Rewrite_DB: 
-                 Channel_Name: 
-           Master_TLS_Version: 
+         Replicate_Rewrite_DB:
+                 Channel_Name:
+           Master_TLS_Version:
 1 row in set (0.00 sec)
 
-ERROR: 
+ERROR:
 No query specified
 ```
 
