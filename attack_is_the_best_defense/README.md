@@ -46,10 +46,33 @@
 > sniffing unencrypted traffic and getting information out of it.
 >
 > export for wireshark
+>
+> convert from base64
+
+> Terminal 1
 
 ```bash
-./user_authenticating_into_server| sudo tcpdump -i any -s 65535 -w outputforwire.txt
+┌──(ralex㉿xelar)-[/media/…/2a17a9fd-dea9-4940-b67e-2348aa63bb5f/ralexrivero/holberton-system_engineering-devops/attack_is_the_best_defense]
+└─$ sudo tcpdump -s 0 -i eth0 -w capture.pcap
 ```
+
+> Terminal 2
+
+```bash
+┌──(ralex㉿xelar)-[/media/…/2a17a9fd-dea9-4940-b67e-2348aa63bb5f/ralexrivero/h┌──(ralex㉿xelar)-[/media/…/2a17a9fd-dea9-4940-b67e-2348aa63bb5f/ralexrivero/holberton-system_engineering-devops/attack_is_the_best_defense]
+└─$ ./user_authenticating_into_server
+```
+
+> After capturing the traffic
+
+```bash
+┌──(ralex㉿xelar)-[/media/…/2a17a9fd-dea9-4940-b67e-2348aa63bb5f/ralexrivero/holberton-system_engineering-devops/attack_is_the_best_defense]
+└─$ tshark -z follow,tcp,ascii,0 -P -r capture.pcap | grep -i pass
+   43  22.802363 192.168.0.101 → 167.89.115.18 SMTP 88 C: Pass: bXlwYXNzd29yZDk4OTgh
+   45  22.988826 167.89.115.18 → 192.168.0.101 SMTP 118 S: 535 Authentication failed: Bad username / password
+```
+
+> Decode the password from base 64
 
 ## Brute attack force
 
