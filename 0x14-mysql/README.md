@@ -108,7 +108,7 @@ ubuntu@3284-web-01:~$
 
 > edit mysql config on source database
 
-``sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf ``
+``sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf``
 
 comment ``# bind-address  = 127.0.0.1``
 
