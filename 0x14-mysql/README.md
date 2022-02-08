@@ -74,6 +74,48 @@ mysql  Ver 14.14 Distrib 5.7.37, for Linux (x86_64) using  EditLine wrapper
 ubuntu@3284-web-02:~$
 ```
 
+``sudo apt-get update``
+``sudo apt-get upgrade``
+``apt list --upgradable``
+``sudo apt upgrade``
+``sudo apt install wget -y``
+``wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb``
+``sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb``
+``sudo apt-get update``
+``sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29``
+``sudo apt-get update``
+``sudo apt-cache policy mysql-server``
+``sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*``
+``wget http://repo.mysql.com/mysql-apt-config_0.8.10-1_all.deb``
+``sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb``
+``sudo apt update``
+``sudo apt-cache policy mysql-server``
+``sudo mkdir -p /etc/mysql/conf.d``
+``sudo apt install -f mysql-client=5.7.30-1ubuntu18.04``
+``sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*``
+``sudo rm -rf /etc/mysql /var/lib/mysql``
+``sudo apt-get autoremove``
+``sudo apt-get autoclean``
+``wget http://repo.mysql.com/mysql-apt-config_0.8.10-1_all.deb``
+``sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb``
+``sudo vi /etc/apt/preferences.d/mysql``
+``mysql``
+``mysqld``
+``clear``
+``mysql``
+``sudo apt update``
+``sudo apt list --upgradable``
+``sudo apt-get upgrade``
+``sudo apt install wget -y``
+``wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb``
+``sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb``
+``sudo apt-get update``
+``sudo apt-cache policy mysql-server``
+``sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*``
+``sudo mysql_secure_installation``
+``sudo mysql -u root -p``
+``mysql --version``
+
 ## check user
 
 ```bash
