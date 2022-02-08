@@ -66,7 +66,6 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 $
 ```
 
-
 * verify mysql version
 
 ```bash
