@@ -56,7 +56,16 @@ $ sudo apt-cache policy mysql-server
 $ sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
 $ sudo mysql_secure_installation
 $ mysql -u root -p
+$
 ```
+
+> if necessary, add the key
+
+```bash
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
+$
+```
+
 
 * verify mysql version
 
