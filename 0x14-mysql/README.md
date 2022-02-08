@@ -74,7 +74,61 @@ mysql  Ver 14.14 Distrib 5.7.37, for Linux (x86_64) using  EditLine wrapper
 ubuntu@3284-web-02:~$
 ```
 
-``sudo apt-get update``
+
+> if doesn't work the installation
+
+```bash
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+sudo rm -rf /etc/mysql /var/lib/mysql
+sudo apt-get autoremove
+sudo apt-get autoclean
+wget http://repo.mysql.com/mysql-apt-config_0.8.10-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb
+sudo dpkg-reconfigure mysql-apt-config
+sudo apt update
+sudo apt-cache policy mysql-server
+sudo mkdir -p /etc/mysql/conf.d
+sudo apt install -f mysql-client=5.7.30-1ubuntu18.04
+sudo apt install -f mysql-community-server=5.7.30-1ubuntu18.04
+sudo apt install -f mysql-server=5.7.30-1ubuntu18.04
+sudo vi /etc/apt/preferences.d/mysql
+
+    Package: mysql-server
+    Pin: version 5.7.30-1ubuntu18.04
+    Pin-Priority: 1001
+
+    Package: mysql-client
+    Pin: version 5.7.30-1ubuntu18.04
+    Pin-Priority: 1001
+
+    Package: mysql-community-server
+    Pin: version 5.7.30-1ubuntu18.04
+    Pin-Priority: 1001
+
+    Package: mysql-community-client
+    Pin: version 5.7.30-1ubuntu18.04
+    Pin-Priority: 1001
+
+    Package: mysql-apt-config
+    Pin: version 0.8.10-1
+    Pin-Priority: 1001
+```
+
+
+```bash
+sudo apt update
+sudo apt install wget -y
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+sudo apt-get update
+sudo apt-cache policy mysql-server
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+sudo mysql_secure_installation
+mysql -u root -p
+```
+
+> bash history
+
 ``sudo apt-get upgrade``
 ``apt list --upgradable``
 ``sudo apt upgrade``
@@ -99,10 +153,6 @@ ubuntu@3284-web-02:~$
 ``wget http://repo.mysql.com/mysql-apt-config_0.8.10-1_all.deb``
 ``sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb``
 ``sudo vi /etc/apt/preferences.d/mysql``
-``mysql``
-``mysqld``
-``clear``
-``mysql``
 ``sudo apt update``
 ``sudo apt list --upgradable``
 ``sudo apt-get upgrade``
