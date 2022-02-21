@@ -185,7 +185,6 @@ ULIMIT="-n 15"
 
 > run puppet to fix the error
 
-
 ```bash
 root@d785f756d8c3:~# puppet apply 0-the_sky_is_the_limit_not.pp
 Notice: Compiled catalog for d785f756d8c3.ec2.internal in environment production in 0.21 seconds
