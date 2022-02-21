@@ -160,7 +160,7 @@ worker_connections 2000;
 
 Shows 612 error log entries
 
-``/var/log/nginx#``
+``/var/log/nginx``
 
 > cat the nginx ulimit
 
@@ -174,7 +174,17 @@ ULIMIT="-n 15"
 root@d785f756d8c3:~#
 ```
 
+```bash
+root@3b62e26387ad:/# cat /etc/default/nginx
+# Note: You may want to look at the following page before setting the ULIMIT.
+#  http://wiki.nginx.org/CoreModule#worker_rlimit_nofile
+# Set the ulimit variable if you need defaults to change.
+#  Example: ULIMIT="-n 4096"
+ULIMIT="-n 15"
+```
+
 > run puppet to fix the error
+
 
 ```bash
 root@d785f756d8c3:~# puppet apply 0-the_sky_is_the_limit_not.pp
@@ -182,8 +192,126 @@ Notice: Compiled catalog for d785f756d8c3.ec2.internal in environment production
 Notice: /Stage[main]/Main/Exec[file limit]/returns: executed successfully
 Notice: Finished catalog run in 2.90 seconds
 root@d785f756d8c3:~#
+```
+
+> run the Apache Bench again
+
+```bash
+root@d785f756d8c3:~# ab -c 100 -n 2000 localhost/
+This is ApacheBench, Version 2.3 <$Revision: 1528965 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 200 requests
+Completed 400 requests
+Completed 600 requests
+Completed 800 requests
+Completed 1000 requests
+Completed 1200 requests
+Completed 1400 requests
+Completed 1600 requests
+Completed 1800 requests
+Completed 2000 requests
+Finished 2000 requests
+
+
+Server Software:        nginx/1.4.6
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /
+Document Length:        612 bytes
+
+Concurrency Level:      100
+Time taken for tests:   3.708 seconds
+Complete requests:      2000
+Failed requests:        0
+Total transferred:      1706000 bytes
+HTML transferred:       1224000 bytes
+Requests per second:    539.44 [#/sec] (mean)
+Time per request:       185.378 [ms] (mean)
+Time per request:       1.854 [ms] (mean, across all concurrent requests)
+Transfer rate:          449.36 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   50  55.2     13     209
+Processing:     1  133  84.5    104     587
+Waiting:        1  108  75.9     99     586
+Total:          2  183  87.3    194     593
+
+Percentage of the requests served within a certain time (ms)
+  50%    194
+  66%    204
+  75%    213
+  80%    285
+  90%    299
+  95%    305
+  98%    392
+  99%    400
+ 100%    593 (longest request)
+root@d785f756d8c3:~#
+```
+
+### user limit
+
+> allows ``holberton`` user to login
+
+```bash
+root@b7c6a09a0ae5:/# su - holberton
+-su: /etc/profile: Too many open files
+-su: /home/holberton/.bash_profile: Too many open files
+-su-4.3$ /etc/profile
+-su: start_pipeline: pgrp pipe: Too many open files
+-su: /etc/profile: Permission denied
+-su-4.3$ head /etc/passwd
+-su: start_pipeline: pgrp pipe: Too many open files
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+-su-4.3$ start_pipeline: pgrep pipe:
+-su: start_pipeline: pgrp pipe: Too many open files
+-su: start_pipeline:: command not found
+-su-4.3$ logout
 
 ```
+
+> change the user limit in the ``/etc/security/limits.conf`` file
+
+```script
+holberton hard nofile unlimited
+holberton soft nofile 3000
+```
+
+```bash
+root@b7c6a09a0ae5:/# puppet apply 1-user_limit.pp
+Notice: Compiled catalog for b7c6a09a0ae5.ec2.internal in environment production in 0.30 seconds
+Notice: /Stage[main]/Main/Exec[Modify soft limit]/returns: executed successfully
+Notice: /Stage[main]/Main/Exec[Modify hard limit]/returns: executed successfully
+Notice: Finished catalog run in 1.00 seconds
+root@b7c6a09a0ae5:/# su - holberton
+holberton@b7c6a09a0ae5:~$ head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+holberton@b7c6a09a0ae5:~$ logout
+```
+
 ## Author
 <!-- twitter -->
 [![Twitter](https://img.shields.io/twitter/follow/ralex_uy?style=social)](https://twitter.com/ralex_uy) <!-- linkedin --> [![Linkedin](https://img.shields.io/badge/LinkedIn-+22K-blue?style=social&logo=linkedin)](https://www.linkedin.com/in/ronald-rivero/) <!-- github --> [![Github](https://img.shields.io/github/followers/ralexrivero?style=social)](https://github.com/ralexrivero/) <!-- vagrant --> [![Vagrant](https://img.shields.io/static/v1?label=&message=Vagrant%20Profile&color=1868F2&logo=vagrant&labelColor=2F333A)](https://app.vagrantup.com/ralexrivero) <!-- docker --> [![Docker](https://img.shields.io/static/v1?label=&message=Docker%20Profile&color=2496ED&logo=Docker&labelColor=2F333A)](https://hub.docker.com/u/ralexrivero)
