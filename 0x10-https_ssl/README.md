@@ -49,7 +49,7 @@ web-01.xelar.tech.	4502	IN	A	35.231.236.4
 ralex@ralex-nb:~$ dig web-02.xelar.tech | grep -A1 'ANSWER SECTION:'
 ;; ANSWER SECTION:
 web-02.xelar.tech.	4502	IN	A	34.74.187.179
-ralex@ralex-nb:~$ 
+ralex@ralex-nb:~$
 ralex@ralex-nb:~$ ./0-world_wide_web xelar.tech
 The subdomain www is a A record and points to 54.165.191.52
 The subdomain lb-01 is a A record and points to 54.165.191.52
@@ -57,7 +57,7 @@ The subdomain web-01 is a A record and points to 35.231.236.4
 The subdomain web-02 is a A record and points to 34.74.187.179
 ralex@ralex-nb:~$ ./0-world_wide_web xelar.tech web-02
 The subdomain web-02 is a A record and points to 34.74.187.179
-ralex@ralex-nb:~$ 
+ralex@ralex-nb:~$
 ```
 
 ## install certbot
@@ -91,7 +91,7 @@ $ sudo mkdir -p /etc/haproxy/certs
 DOMAIN='xelar.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
 $ sudo chmod -R go-rwx /etc/haproxy/certs
 ```
- 
+
 > config.cfg in haproxy
 
 _global_
@@ -172,7 +172,7 @@ vagrant@ubuntu-xenial:~$ curl https://www.xelar.tech
 Holberton School
 vagrant@ubuntu-xenial:~$ curl https://www.xelar.tech
 Holberton School
-vagrant@ubuntu-xenial:~$ 
+vagrant@ubuntu-xenial:~$
 ```
 
 ## redirection 301 from http to https
@@ -197,10 +197,10 @@ x-served-by: 3284-web-01
 accept-ranges: bytes
 
 
-vagrant@ubuntu-xenial:~$ 
+vagrant@ubuntu-xenial:~$
 ```
 
 # Author
 
 <!-- twitter -->
-[![Twitter](https://img.shields.io/twitter/follow/ralex_uy?style=social)](https://twitter.com/ralex_uy) <!-- linkedin --> [![Linkedin](https://img.shields.io/badge/LinkedIn-+21K-blue?style=social&logo=linkedin)](https://www.linkedin.com/in/ronald-rivero/) <!-- github --> [![Github](https://img.shields.io/github/followers/ralexrivero?style=social)](https://github.com/ralexrivero/) <!-- vagrant --> [![Vagrant](https://img.shields.io/static/v1?label=&message=Vagrant%20Profile&color=1868F2&logo=vagrant&labelColor=2F333A)](https://app.vagrantup.com/ralexrivero) <!-- docker --> [![Docker](https://img.shields.io/static/v1?label=&message=Docker%20Profile&color=2496ED&logo=Docker&labelColor=2F333A)](https://hub.docker.com/u/ralexrivero)
+[![Twitter](https://img.shields.io/twitter/follow/ralex_uy?style=social)](https://twitter.com/ralex_uy) <!-- linkedin --> [![Linkedin](https://img.shields.io/badge/LinkedIn-+24K-blue?style=social&logo=linkedin)](https://www.linkedin.com/in/ronald-rivero/) <!-- github --> [![Github](https://img.shields.io/github/followers/ralexrivero?style=social)](https://github.com/ralexrivero/) <!-- vagrant --> [![Vagrant](https://img.shields.io/static/v1?label=&message=Vagrant%20Profile&color=1868F2&logo=vagrant&labelColor=2F333A)](https://app.vagrantup.com/ralexrivero) <!-- docker --> [![Docker](https://img.shields.io/static/v1?label=&message=Docker%20Profile&color=2496ED&logo=Docker&labelColor=2F333A)](https://hub.docker.com/u/ralexrivero)

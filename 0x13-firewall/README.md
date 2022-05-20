@@ -43,7 +43,7 @@ Connection closed by foreign host.
 vagrant@ubuntu-xenial:~$ telnet web-01.xelar.tech 2222
 Trying 35.231.236.4...
 ^C
-vagrant@ubuntu-xenial:~$ 
+vagrant@ubuntu-xenial:~$
 ```
 
 > blocks all incoming traffic, except the following TCP ports:
@@ -116,7 +116,7 @@ ubuntu@3284-web-01:~$ grep listen /etc/nginx/sites-enabled/default
 	# listen [::]:443 ssl default_server;
 #	listen 80;
 #	listen [::]:80;
-ubuntu@3284-web-01:~$ 
+ubuntu@3284-web-01:~$
 ```
 
 ```bash
@@ -144,7 +144,7 @@ ETag: "61ee485e-11"
 X-Served-By: 3284-web-01
 Accept-Ranges: bytes
 
-vagrant@ubuntu-xenial:~$ 
+vagrant@ubuntu-xenial:~$
 ```
 
 > firewall redirects port 8080/TCP to port 80/TCP.
@@ -171,4 +171,4 @@ Firewall reloaded
 ## Author
 
 <!-- twitter -->
-[![Twitter](https://img.shields.io/twitter/follow/ralex_uy?style=social)](https://twitter.com/ralex_uy) <!-- linkedin --> [![Linkedin](https://img.shields.io/badge/LinkedIn-+21K-blue?style=social&logo=linkedin)](https://www.linkedin.com/in/ronald-rivero/) <!-- github --> [![Github](https://img.shields.io/github/followers/ralexrivero?style=social)](https://github.com/ralexrivero/) <!-- vagrant --> [![Vagrant](https://img.shields.io/static/v1?label=&message=Vagrant%20Profile&color=1868F2&logo=vagrant&labelColor=2F333A)](https://app.vagrantup.com/ralexrivero) <!-- docker --> [![Docker](https://img.shields.io/static/v1?label=&message=Docker%20Profile&color=2496ED&logo=Docker&labelColor=2F333A)](https://hub.docker.com/u/ralexrivero)
+[![Twitter](https://img.shields.io/twitter/follow/ralex_uy?style=social)](https://twitter.com/ralex_uy) <!-- linkedin --> [![Linkedin](https://img.shields.io/badge/LinkedIn-+24K-blue?style=social&logo=linkedin)](https://www.linkedin.com/in/ronald-rivero/) <!-- github --> [![Github](https://img.shields.io/github/followers/ralexrivero?style=social)](https://github.com/ralexrivero/) <!-- vagrant --> [![Vagrant](https://img.shields.io/static/v1?label=&message=Vagrant%20Profile&color=1868F2&logo=vagrant&labelColor=2F333A)](https://app.vagrantup.com/ralexrivero) <!-- docker --> [![Docker](https://img.shields.io/static/v1?label=&message=Docker%20Profile&color=2496ED&logo=Docker&labelColor=2F333A)](https://hub.docker.com/u/ralexrivero)
